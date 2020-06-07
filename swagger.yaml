@@ -14,6 +14,8 @@ basePath: "/"
 tags:
 - name: "List virtual servers"
   description: ""
+- name: "Maintain virtual servers"
+  description: ""
 schemes:
 - "https"
 paths:
@@ -23,8 +25,6 @@ paths:
       - "List virtual servers"
       summary: "List all virtual servers"
       operationId: "listVS"
-      consumes:
-      - "application/json"
       produces:
       - "application/json"
       responses:
@@ -32,8 +32,32 @@ paths:
           description: "Success"
       security:
       - api_key: []
+      - api_pass: []
+  "/index.php?act=listvs&suspend={vsId}":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Suspend virtual server"
+      operationId: "suspendVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
 securityDefinitions:
   api_key:
     type: "apiKey"
     name: "apikey"
+    in: "query"
+  api_pass:
+    type: "apiKey"
+    name: "apipass"
     in: "query"
