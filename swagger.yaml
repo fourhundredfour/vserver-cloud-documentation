@@ -33,6 +33,26 @@ paths:
       security:
       - api_key: []
       - api_pass: []
+  "/index.php?svs={vsId}&act=vpsmanage":
+    get:
+      tags:
+        - "List virtual servers"
+      summary: "Get information about virtual server"
+      operationId: "manageVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+
   "/index.php?act=listvs&suspend={vsId}":
     get:
       tags:
@@ -52,6 +72,78 @@ paths:
       security:
       - api_key: []
       - api_pass: []
+  "/index.php?act=listvs&unsuspend={vsId}":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Unsuspend virtual server"
+      operationId: "unsuspendVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=listvs&suspend_net={vsId}":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Suspend net virtual server"
+      operationId: "suspendNetVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=listvs&unsuspend_net={vsId}":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Unsuspend net virtual server"
+      operationId: "unsuspendNetVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=create":
+    post:
+      tags:
+        - "Create virtual servers"
+      summary: "Create virtual server"
+      operationId: "createVS"
+      parameters:
+      -todo
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+
 securityDefinitions:
   api_key:
     type: "apiKey"
