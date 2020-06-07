@@ -1,0 +1,39 @@
+swagger: "2.0"
+info:
+  description: "https://vserver-cloud.net"
+  version: "1.0.0"
+  title: "vServer Cloud"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "support@vserver.site"
+  license:
+    name: "MIT License"
+    url: "https://github.com/fourhundredfour/vserver-cloud-documentation/blob/master/LICENSE"
+host: "vserver-cloud.net"
+basePath: "/"
+tags:
+- name: "List virtual servers"
+  description: ""
+schemes:
+- "https"
+paths:
+  "/index.php?act=listvs":
+    get:
+      tags:
+      - "List virtual servers"
+      summary: "List all virtual servers"
+      operationId: "listVS"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+securityDefinitions:
+  api_key:
+    type: "apiKey"
+    name: "apikey"
+    in: "query"
