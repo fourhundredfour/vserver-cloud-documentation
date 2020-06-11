@@ -406,7 +406,400 @@ paths:
       security:
       - api_key: []
       - api_pass: []
-
+  "/index.php?svs={vsId}&act=ips":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get IP Addresses of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "ipVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=system_alerts":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get System Alerts of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "sysalertsVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=cpu":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get CPU details of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "cpuVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=ram":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get RAM details of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "ramVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=disk":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get Disk details of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "diskVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=bandwidth":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get Bandwidth details of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "bandwidthVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=logs":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get logs of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "logsVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=statuslogs":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get status logs of the virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "statusLogsVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=apikey":
+    get:
+      tags:
+        - "API"
+      summary: "Get api key"
+      produces:
+        - "appplication/json"
+      operationId: "readApiKeys"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=apikey&do=add":
+    get:
+      tags:
+        - "API"
+      summary: "Create API Key"
+      produces:
+        - "appplication/json"
+      operationId: "createApiKey"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=apikey&del={apiKeyId}":
+    get:
+      tags:
+        - "API"
+      summary: "Create API Key"
+      produces:
+        - "appplication/json"
+      operationId: "deleteApiKey"
+      parameters:
+        - name: "apiKeyId"
+          description: ""
+          required: true
+          type: "string"
+          in: "path"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=adduser":
+    post:
+      tags:
+        - "User"
+      summary: "Add user"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      operationId: "addUser"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=edituser&uid={userId}":
+    post:
+      tags:
+        - "User"
+      summary: "Edit user"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      parameters:
+        - name: "userId"
+          description: ""
+          type: "string"
+          required: true
+          in: "path"
+      operationId: "editUser"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=users":
+    get:
+      tags:
+        - "User"
+      summary: "Get all users"
+      produces:
+        - "appplication/json"
+      operationId: "users"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=users&delete=":
+    post:
+      tags:
+        - "User"
+      summary: "Delete user"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      operationId: "deleteUser"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=listrecipes":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get all recipes"
+      produces:
+        - "appplication/json"
+      operationId: "getRecipeVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+    post:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Set recipe"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      operationId: "setRecipeVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "rid"
+        in: "formData"
+        description: ""
+        required: true
+        type: "string"
+      - name: "exec_recipe"
+        in: "formData"
+        description: ""
+        required: true
+        type: "string"
+        default: "Execute Recipe"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=processes":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get all processes"
+      produces:
+        - "appplication/json"
+      operationId: "processesVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=cloudres":
+    get:
+      tags:
+        - "Cloudres"
+      summary: "Cloudres"
+      produces:
+        - "appplication/json"
+      operationId: "cloudres"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=services":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "List the services in a VPS"
+      produces:
+        - "appplication/json"
+      operationId: "servicesVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
 
 securityDefinitions:
   api_key:
