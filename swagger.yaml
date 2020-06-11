@@ -16,6 +16,12 @@ tags:
   description: ""
 - name: "Maintain virtual servers"
   description: ""
+- name: "Backup virtual servers"
+  description: ""
+- name: "Create virtual servers"
+  description: ""
+- name: "Edit virtual servers"
+  description: ""
 schemes:
 - "https"
 paths:
@@ -24,6 +30,8 @@ paths:
       tags:
       - "List virtual servers"
       summary: "List all virtual servers"
+      produces:
+        - "appplication/json"
       operationId: "listVS"
       produces:
       - "application/json"
@@ -38,6 +46,8 @@ paths:
       tags:
         - "List virtual servers"
       summary: "Get information about virtual server"
+      produces:
+        - "appplication/json"
       operationId: "manageVS"
       parameters:
       - name: "vsId"
@@ -58,6 +68,8 @@ paths:
       tags:
         - "Maintain virtual servers"
       summary: "Suspend virtual server"
+      produces:
+        - "appplication/json"
       operationId: "suspendVS"
       parameters:
       - name: "vsId"
@@ -77,6 +89,8 @@ paths:
       tags:
         - "Maintain virtual servers"
       summary: "Unsuspend virtual server"
+      produces:
+        - "appplication/json"
       operationId: "unsuspendVS"
       parameters:
       - name: "vsId"
@@ -96,6 +110,8 @@ paths:
       tags:
         - "Maintain virtual servers"
       summary: "Suspend net virtual server"
+      produces:
+        - "appplication/json"
       operationId: "suspendNetVS"
       parameters:
       - name: "vsId"
@@ -115,6 +131,8 @@ paths:
       tags:
         - "Maintain virtual servers"
       summary: "Unsuspend net virtual server"
+      produces:
+        - "appplication/json"
       operationId: "unsuspendNetVS"
       parameters:
       - name: "vsId"
@@ -134,14 +152,245 @@ paths:
       tags:
         - "Create virtual servers"
       summary: "Create virtual server"
+      produces:
+        - "appplication/json"
+      consumes:
+        - "application/x-www-form-urlencoded"
       operationId: "createVS"
-      parameters:
       responses:
         "200":
           description: "Success"
       security:
       - api_key: []
       - api_pass: []
+  "/index.php?vid={vsId}&act=editvm":
+    post:
+      tags:
+        - "Maintain virtual servers"
+        - "Edit virtual servers"
+      summary: "Edit virtual server"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      operationId: "editVS"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=backup2":
+    post:
+      tags:
+        - "Backup virtual servers"
+      summary: "Backup virtual server"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      parameters:
+        - name: "vsId"
+          in: "path"
+          description: "ID of the virtual server"
+          required: true
+          type: "integer"
+          format: "int64"
+      operationId: "backupVS"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=rescue":
+    post:
+      tags:
+        - "Rescue virtual servers"
+      summary: "Rescue virtual server"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      parameters:
+        - name: "vsId"
+          in: "path"
+          description: "ID of the virtual server"
+          required: true
+          type: "integer"
+          format: "int64"
+        - name: "password"
+          in: "formData"
+          description: ""
+          required: false
+          type: "string"
+        - name: "conf_password"
+          in: "formData"
+          description: ""
+          required: false
+          type: "string"
+        - name: "enablerescue"
+          in: "formData"
+          description: ""
+          required: false
+          type: "boolean"
+        - name: "disablerescue"
+          in: "formData"
+          description: ""
+          required: false
+      operationId: "rescueVS"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?act=monitor&svs={vsId}":
+    get:
+      tags:
+        - "Monitor virtual servers"
+      summary: "Monitor virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "monitorVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: false
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=start&do=1":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Start virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "startVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=stop&do=1":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Stop virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "stopVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=restart&do=1":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Restart virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "restartVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=poweroff&do=1":
+    get:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Poweroff virtual server"
+      produces:
+        - "appplication/json"
+      operationId: "poweroffVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+  "/index.php?svs={vsId}&act=hostname":
+    post:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Get the hostname of a VM"
+      consumes:
+        - "application/x-www-form-urlencoded"
+      produces:
+        - "appplication/json"
+      operationId: "hostnameVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      - name: "newhost"
+        in: "formData"
+        description: ""
+        required: false
+        type: "string"
+      - name: "changehost"
+        in: "formData"
+        description: ""
+        required: true
+        default: "Change Hostname"
+      responses:
+        "200":
+          description: "Success"
+      security:
+      - api_key: []
+      - api_pass: []
+
 
 securityDefinitions:
   api_key:
