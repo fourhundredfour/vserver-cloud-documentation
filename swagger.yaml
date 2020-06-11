@@ -33,8 +33,6 @@ paths:
       produces:
         - "appplication/json"
       operationId: "listVS"
-      produces:
-      - "application/json"
       responses:
         "200":
           description: "Success"
@@ -264,7 +262,7 @@ paths:
       - name: "vsId"
         in: "path"
         description: "ID of the virtual server"
-        required: false
+        required: true
         type: "integer"
         format: "int64"
       responses:
@@ -358,15 +356,32 @@ paths:
       - api_key: []
       - api_pass: []
   "/index.php?svs={vsId}&act=hostname":
-    post:
+    get:
       tags:
         - "Maintain virtual servers"
       summary: "Get the hostname of a VM"
+      produces:
+        - "application/json"
+      operationId: "readHostnameVS"
+      parameters:
+      - name: "vsId"
+        in: "path"
+        description: "ID of the virtual server"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        "200":
+          description: "Success"
+    post:
+      tags:
+        - "Maintain virtual servers"
+      summary: "Set the hostname of a VM"
       consumes:
         - "application/x-www-form-urlencoded"
       produces:
         - "appplication/json"
-      operationId: "hostnameVS"
+      operationId: "setHostnameVS"
       parameters:
       - name: "vsId"
         in: "path"
@@ -380,6 +395,7 @@ paths:
         required: false
         type: "string"
       - name: "changehost"
+        type: "string"
         in: "formData"
         description: ""
         required: true
