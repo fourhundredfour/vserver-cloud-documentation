@@ -1,0 +1,1343 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "https://vserver-cloud.net",
+    "version": "1.0.0",
+    "title": "vServer Cloud",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "support@vserver.site"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://github.com/fourhundredfour/vserver-cloud-documentation/blob/master/LICENSE"
+    }
+  },
+  "host": "vserver-cloud.net",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "List virtual servers",
+      "description": ""
+    },
+    {
+      "name": "Maintain virtual servers",
+      "description": ""
+    },
+    {
+      "name": "Backup virtual servers",
+      "description": ""
+    },
+    {
+      "name": "Create virtual servers",
+      "description": ""
+    },
+    {
+      "name": "Edit virtual servers",
+      "description": ""
+    }
+  ],
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/index.php?act=listvs": {
+      "get": {
+        "tags": [
+          "List virtual servers"
+        ],
+        "summary": "List all virtual servers",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "listVS",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=vpsmanage": {
+      "get": {
+        "tags": [
+          "List virtual servers"
+        ],
+        "summary": "Get information about virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "manageVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=listvs&suspend={vsId}": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Suspend virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "suspendVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=listvs&unsuspend={vsId}": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Unsuspend virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "unsuspendVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=listvs&suspend_net={vsId}": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Suspend net virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "suspendNetVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=listvs&unsuspend_net={vsId}": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Unsuspend net virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "unsuspendNetVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=create": {
+      "post": {
+        "tags": [
+          "Create virtual servers"
+        ],
+        "summary": "Create virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "operationId": "createVS",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?vid={vsId}&act=editvm": {
+      "post": {
+        "tags": [
+          "Maintain virtual servers",
+          "Edit virtual servers"
+        ],
+        "summary": "Edit virtual server",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "operationId": "editVS",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=backup2": {
+      "post": {
+        "tags": [
+          "Backup virtual servers"
+        ],
+        "summary": "Backup virtual server",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "operationId": "backupVS",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=rescue": {
+      "post": {
+        "tags": [
+          "Rescue virtual servers"
+        ],
+        "summary": "Rescue virtual server",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "conf_password",
+            "in": "formData",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "enablerescue",
+            "in": "formData",
+            "description": "",
+            "required": false,
+            "type": "boolean"
+          },
+          {
+            "name": "disablerescue",
+            "in": "formData",
+            "description": "",
+            "required": false
+          }
+        ],
+        "operationId": "rescueVS",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=monitor&svs={vsId}": {
+      "get": {
+        "tags": [
+          "Monitor virtual servers"
+        ],
+        "summary": "Monitor virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "monitorVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=start&do=1": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Start virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "startVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=stop&do=1": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Stop virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "stopVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=restart&do=1": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Restart virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "restartVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=poweroff&do=1": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Poweroff virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "poweroffVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=hostname": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get the hostname of a VM",
+        "produces": [
+          "application/json"
+        ],
+        "operationId": "readHostnameVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Set the hostname of a VM",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "setHostnameVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "newhost",
+            "in": "formData",
+            "description": "",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "changehost",
+            "type": "string",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "default": "Change Hostname"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=ips": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get IP Addresses of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "ipVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=system_alerts": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get System Alerts of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "sysalertsVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=cpu": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get CPU details of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "cpuVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=ram": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get RAM details of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "ramVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=disk": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get Disk details of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "diskVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=bandwidth": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get Bandwidth details of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "bandwidthVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=logs": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get logs of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "logsVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=statuslogs": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get status logs of the virtual server",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "statusLogsVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=apikey": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Get api key",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "readApiKeys",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=apikey&do=add": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Create API Key",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "createApiKey",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=apikey&del={apiKeyId}": {
+      "get": {
+        "tags": [
+          "API"
+        ],
+        "summary": "Create API Key",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "deleteApiKey",
+        "parameters": [
+          {
+            "name": "apiKeyId",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "in": "path"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=adduser": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Add user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "addUser",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=edituser&uid={userId}": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Edit user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "description": "",
+            "type": "string",
+            "required": true,
+            "in": "path"
+          }
+        ],
+        "operationId": "editUser",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=users": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get all users",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "users",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=users&delete=": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Delete user",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "deleteUser",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=listrecipes": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get all recipes",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "getRecipeVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Set recipe",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "setRecipeVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "rid",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "exec_recipe",
+            "in": "formData",
+            "description": "",
+            "required": true,
+            "type": "string",
+            "default": "Execute Recipe"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=processes": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "Get all processes",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "processesVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?act=cloudres": {
+      "get": {
+        "tags": [
+          "Cloudres"
+        ],
+        "summary": "Cloudres",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "cloudres",
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    },
+    "/index.php?svs={vsId}&act=services": {
+      "get": {
+        "tags": [
+          "Maintain virtual servers"
+        ],
+        "summary": "List the services in a VPS",
+        "produces": [
+          "appplication/json"
+        ],
+        "operationId": "servicesVS",
+        "parameters": [
+          {
+            "name": "vsId",
+            "in": "path",
+            "description": "ID of the virtual server",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          },
+          {
+            "api_pass": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "api_key": {
+      "type": "apiKey",
+      "name": "apikey",
+      "in": "query"
+    },
+    "api_pass": {
+      "type": "apiKey",
+      "name": "apipass",
+      "in": "query"
+    }
+  }
+}
